@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Start from './components/Start';
 
 function App() {
+  
   return (
     <div className="bg-[#F8F4EA]">
       <Router>
