@@ -1,11 +1,11 @@
 import Login from './pages/Login';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Regsiter from './pages/Regsiter';
 import Home from './pages/Home';
 import Start from './components/Start';
 
 function App() {
-  
+
   return (
     <div className="bg-[#F8F4EA]">
       <Router>
