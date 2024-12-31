@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
 import { useForm } from "react-hook-form";
-import { googleAuth, loginUser, validUser } from "../apis/auth";
+import { loginUser, validUser } from "../apis/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { BsEmojiLaughing, BsEmojiExpressionless } from "react-icons/bs";
 import { toast } from "react-toastify";
