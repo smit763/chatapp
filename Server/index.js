@@ -14,16 +14,24 @@ const corsConfig = {
   origin: "*",
   credentials: true,
 };
+const corsOptions = {
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+};
+
 const PORT = process.env.PORT || 8000;
 
+app.use(cors(corsOptions));
+// app.use(cors(corsConfig));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors(corsConfig));
 app.use("/", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 mongoose.set("strictQuery", false);
+
 mongoDBConnect();
+
 const server = app.listen(PORT, () => {
   console.log(`Server Listening at PORT - ${PORT}`);
 });
