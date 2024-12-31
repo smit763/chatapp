@@ -62,8 +62,8 @@ export const updateUser = async (id, body) => {
 export const checkValid = async () => {
   const data = await validUser();
   if (!data?.user) {
-    window.location.href = '/login';
+    window.location.href = '/#/login';
   } else {
-    window.location.href = '/chats';
+    window.location.href = '/#/chats';
   }
 };

@@ -6,7 +6,7 @@ import { googleAuth, registerUser, validUser } from "../apis/auth";
 import { BsEmojiLaughing, BsEmojiExpressionless } from "react-icons/bs";
 import { toast } from "react-toastify";
 
-function Register() {
+const Register = () =>{
   const {
     register,
     handleSubmit,
