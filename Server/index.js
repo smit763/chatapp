@@ -10,10 +10,7 @@ import messageRoutes from "./routes/message.js";
 import * as Server from "socket.io";
 
 const app = express();
-const corsConfig = {
-  origin: "*",
-  credentials: true,
-};
+0;
 const corsOptions = {
   origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
@@ -21,7 +18,7 @@ const corsOptions = {
 
 const PORT = process.env.PORT || 8000;
 
-app.use(cors(corsOptions));
+app.use(cors());
 // app.use(cors(corsConfig));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,6 +38,7 @@ const io = new Server.Server(server, {
     origin: "*",
   },
 });
+
 io.on("connection", (socket) => {
   socket.on("setup", (userData) => {
     socket.join(userData.id);
