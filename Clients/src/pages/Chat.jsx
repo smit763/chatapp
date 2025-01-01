@@ -87,7 +87,7 @@ function Chat(props) {
     const isValid = async () => {
       const data = await validUser();
       if (!data?.user) {
-        navigate("/login")
+        navigate("/login");
       }
     };
     isValid();
