@@ -14,10 +14,12 @@ import Picker from "@emoji-mart/react";
 import { getChatName } from "../utils/logics";
 import Typing from "../components/ui/Typing";
 import { validUser } from "../apis/auth";
+import { useNavigate } from "react-router-dom";
 const ENDPOINT = process.env.REACT_APP_SERVER_URL;
 let socket, selectedChatCompare;
 
 function Chat(props) {
+  const navigate = useNavigate();
   const { activeChat, notifications } = useSelector((state) => state.chats);
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
@@ -85,7 +87,7 @@ function Chat(props) {
     const isValid = async () => {
       const data = await validUser();
       if (!data?.user) {
-        window.location.href = "/login";
+        navigate("/login")
       }
     };
     isValid();

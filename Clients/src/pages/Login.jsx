@@ -49,7 +49,7 @@ const Login = () => {
     const checkValidUser = async () => {
       const response = await validUser();
       if (response?.user) {
-        window.location.href = "/chats";
+        navigate("/chats");
       }
     };
     checkValidUser();

@@ -6,7 +6,8 @@ import { googleAuth, registerUser, validUser } from "../apis/auth";
 import { BsEmojiLaughing, BsEmojiExpressionless } from "react-icons/bs";
 import { toast } from "react-toastify";
 
-const Register = () =>{
+const Register = () => {
+  
   const {
     register,
     handleSubmit,
@@ -15,7 +16,7 @@ const Register = () =>{
   } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
-  const pageRoute = useNavigate();
+  const navigate = useNavigate();
 
   const handleOnSubmit = async (data) => {
     setIsLoading(true);
@@ -24,7 +25,7 @@ const Register = () =>{
       if (response?.data?.token) {
         localStorage.setItem("userToken", response.data.token);
         toast.success("Successfully Registered!");
-        pageRoute("/chats");
+        navigate("/chats");
       } else {
         toast.error("Registration Failed!");
       }
@@ -47,7 +48,7 @@ const Register = () =>{
     const checkValidUser = async () => {
       const response = await validUser();
       if (response?.user) {
-        window.location.href = "/chats";
+        navigate("/chats");
       }
     };
     checkValidUser();
@@ -173,6 +174,6 @@ const Register = () =>{
       </div>
     </div>
   );
-}
+};
 
 export default Register;
